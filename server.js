@@ -1,6 +1,7 @@
 const express =require('express')
 const app=express()
 const db=require('./db');
+require('dotenv').config();
 
 
 const bodyParser=require('body-parser');
@@ -15,6 +16,8 @@ app.get('/chip', (req,res)=>{
 });
 const personRoutes=require('./routes/personRoutes');
 app.use('/person', personRoutes);
+
+const port=process.env.PORT||3000;
    
-app.listen(3000);
+app.listen(port);
 
